@@ -1,0 +1,12 @@
+﻿@model Participation
+@{
+    Layout = null;
+    ViewBag.title = "Ibis";
+    ViewContext.MailMessage().Subject = String.Format("Validation");
+    ViewContext.MailMessage().From = new System.Net.Mail.MailAddress("nepasrepondre@ibishotels.fr", "Ibis Hotels");
+
+}
+
+
+<h2>Merci, vous allez recevoir une invitation par e-mail</h2>
+

@@ -1,0 +1,13 @@
+﻿@model Participation
+@{
+    Layout = null;
+    ViewBag.title = "Ibis";
+    ViewContext.MailMessage().Subject = String.Format("Confirmation de votre participation au Concours");
+    ViewContext.MailMessage().From = new System.Net.Mail.MailAddress("nepasrepondre@ibishotels.fr", "Ibis Hotels");
+
+}
+
+<h2>EmailInscription</h2>
+
+<a href="@Url.AbsoluteAction("Validate","Home" , new { eventId = Model.EventId, id = Model.Id, uid = Model.UID })">Validez votre participation</a>
+

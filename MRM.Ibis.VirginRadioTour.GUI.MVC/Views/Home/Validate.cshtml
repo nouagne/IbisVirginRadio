@@ -1,0 +1,48 @@
+﻿@model ValidationViewModel
+@{
+    ViewBag.Title = "Live exceptionnel";
+}
+
+
+@Html.Partial("_EventDetails")
+<div class="event-prizes-form event-prizes-form--validate">
+    <p class="form__intro">Qui sont les heureux élus&nbsp;?</p>
+    <form action="@Url.Action("Validate", "Home")" method="post" class="form">
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.UID)
+
+        <div class="form__group form__group--gender">
+        <label for="civility">Civilité<sup>*</sup> :</label>
+        <!-- civilité -->
+            @Html.RadioButtonFor(model => model.Gender, Gender.Mr, new { id = "male" })<label for="male">M.</label>
+            @Html.RadioButtonFor(model => model.Gender, Gender.Mrs, new { id = "female" })<label for="female">Mme</label>
+        </div>
+        <!-- nom -->
+        <div class="form__group form__group--last-name">
+                <label for="lastname">Nom*</label>
+            @Html.TextBoxFor(model => model.Lastname, new { name = "lastname", id = "lastname" })
+            </div>
+        <div class="form__group form__group--first-name">
+                <label for="name">Prénom*</label>
+            @Html.TextBoxFor(model => model.Firstname, new { name = "name", id = "name" })
+            </div>
+        <div class="form__group form__group--last-name">
+            <label for="email">Adresse mail*</label>
+            @Html.TextBoxFor(model => model.Email, new { name = "email", id = "email" })
+            </div>
+        <div class="form__group form__group--phone">
+            <label for="tel">Numéro de téléphone</label>
+            @Html.TextBoxFor(model => model.Phone, new { name = "tel", id = "tel" })
+            </div>
+            <div class="form__group form__group--guest">
+                <label for="guest">Nom et Prénom de l'accompagnant*</label>
+                @Html.TextBoxFor(model => model.Guest, new { name = "guest", id = "guest" })
+            </div>
+            <input type="submit" value="Valider" class="form__submit">
+            <p class="form__errors" data-default-error="* Merci de remplir les champs obligatoires">@Html.ValidationSummary(true, "* Merci de remplir les champs obligatoires")</p>
+        </div>
+        <p class="form__mandatory">*Champs obligatoires</p>
+    </form>
+</div>
