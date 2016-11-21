@@ -6,6 +6,8 @@ namespace MRM.Ibis.VirginRadioTour.GUI.MVC.ViewModels
 {
     public class ValidationViewModel
     {
+        public string EventId { get; set; }
+
         [Required]
         public int Id { get; set; }
 

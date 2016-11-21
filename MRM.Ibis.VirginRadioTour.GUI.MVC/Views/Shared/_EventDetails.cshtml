@@ -1,12 +1,14 @@
-﻿<div class="event-cast-wrapper">
+﻿@model EventViewModel
+
+<div class="event-cast-wrapper">
   <header class="heading-event">
     <h1 class="heading-event__title heading-event__title--logo">Virgin Radio Live by ibis</h1>
     <h2 class="heading-event__title heading-event__title--main-title">Live exceptionnel</h2>
-    <h3 class="heading-event__title heading-event__title--subtitle">à <strong>LYON le 28/11</strong></h3>
+    <h3 class="heading-event__title heading-event__title--subtitle">à <strong>@Model.City le @Model.StartDate.ToString("dd/MM")</strong></h3>
   </header>
 
-  <div class="event-cast">
-    <img src="~/Statics/img/events/2016_11_lyon/cast-1.jpg" alt="Julian Perretta / Damien Lauretta" class="event-cast__picture">
-    <img src="~/Statics/img/events/2016_11_lyon/cast-2.jpg" alt="Jonas Blue / Evangeline" class="event-cast__picture">
-  </div>
+    <div class="event-cast">
+        <img src="~/Statics/img/events/@Model.City/@Model.StartDate.Day-@Model.StartDate.Month-@Model.StartDate.Year/cast-1.jpg" alt="Julian Perretta / Damien Lauretta" class="event-cast__picture">
+        <img src="~/Statics/img/events/@Model.City/@Model.StartDate.Day-@Model.StartDate.Month-@Model.StartDate.Year/cast-2.jpg" alt="Jonas Blue / Evangeline" class="event-cast__picture">
+    </div>
 </div>

@@ -11,6 +11,8 @@ $RECYCLE.BIN/
 # Folders
 bin/
 obj/
+packages/
+.vs/
 
 # Extensions
 *.user

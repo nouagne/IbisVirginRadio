@@ -4,7 +4,7 @@
 }
 
 
-@Html.Partial("_EventDetails")
+@{Html.RenderAction("EventDetails", "Event", new { eventId = ViewBag.EventId });}
 <div class="event-prizes-form">
     <p class="form__intro">Pour vous rendre au concert, <br>passez par le formulaire !</p>
     @Html.Partial("_EventPrizes")

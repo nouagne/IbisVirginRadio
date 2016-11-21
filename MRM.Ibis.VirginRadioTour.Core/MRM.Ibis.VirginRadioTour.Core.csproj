@@ -90,17 +90,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\EventManager.cs" />
     <Compile Include="BLL\ParticipationManager.cs" />
     <Compile Include="BO\Event.cs" />
     <Compile Include="BO\Participation.cs" />
     <Compile Include="BO\Enums.cs" />
     <Compile Include="DAL\EFDbContext.cs" />
+    <Compile Include="DAL\EventRepository.cs" />
+    <Compile Include="DAL\IEventRepository.cs" />
     <Compile Include="DAL\ParticipantRepository.cs" />
     <Compile Include="DAL\GenericRepository.cs" />
     <Compile Include="DAL\IParticipantRepository.cs" />
     <Compile Include="DAL\IGenericRepository.cs" />
     <Compile Include="DAL\IUnitOfWork.cs" />
     <Compile Include="DAL\UnitOfWork.cs" />
+    <Compile Include="Exceptions\EventNotFoundException.cs" />
     <Compile Include="Exceptions\ParticipationNotFoundException.cs" />
     <Compile Include="Exceptions\EmailAlreadyExistsException.cs" />
     <Compile Include="Migrations\Configuration.cs" />

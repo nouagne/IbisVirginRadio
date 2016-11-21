@@ -13,7 +13,22 @@ namespace MRM.Ibis.VirginRadioTour.GUI.MVC.Controllers
     {
         public ActionResult Index(string eventId)
         {
-            return View();
+            try
+            {
+                EventManager manager = new EventManager(UnitOfWork);
+                Event @event = manager.FindByName(eventId);
+
+                if (DateTime.Now > @event.InscriptionsEndDate)
+                    return RedirectToAction("End");
+
+                ViewBag.EventId = eventId;
+
+                return View();
+            }
+            catch (EventNotFoundException)
+            {
+                return RedirectToAction("NoEvent");
+            }
         }
 
         [HttpPost]
@@ -25,6 +40,7 @@ namespace MRM.Ibis.VirginRadioTour.GUI.MVC.Controllers
             {
                 try
                 {
+                    ViewBag.EventId = eventId;
                     ParticipationManager manager = new ParticipationManager(UnitOfWork);
                     Participation participation = Mapper.Map<Participation>(vm);
 

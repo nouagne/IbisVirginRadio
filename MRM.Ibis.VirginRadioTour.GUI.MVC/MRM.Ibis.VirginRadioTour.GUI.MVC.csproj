@@ -148,6 +148,7 @@
     <Compile Include="Attributes\TrueAttribute.cs" />
     <Compile Include="Controllers\API\BaseController.cs" />
     <Compile Include="Controllers\API\ParticipationController.cs" />
+    <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Global.asax.cs">
@@ -157,6 +158,7 @@
     <Compile Include="Helpers\StringExtensions.cs" />
     <Compile Include="Helpers\UrlExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\EventViewModel.cs" />
     <Compile Include="ViewModels\ParticipationViewModel.cs" />
     <Compile Include="ViewModels\ValidationViewModel.cs" />
   </ItemGroup>
@@ -214,6 +216,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Event\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

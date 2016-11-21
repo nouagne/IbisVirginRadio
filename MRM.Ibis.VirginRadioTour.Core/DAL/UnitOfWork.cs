@@ -35,6 +35,23 @@ namespace MRM.Ibis.VirginRadioTour.Core.DAL
             }
         }
 
+        private IEventRepository _eventRepository;
+
+        /// <summary>
+        /// Obtient le Repository correspondant à l'entité Entity
+        /// </summary>
+        public IEventRepository EventRepository
+        {
+            get
+            {
+                if (this._eventRepository == null)
+                {
+                    this._eventRepository = new EventRepository(_context);
+                }
+                return this._eventRepository;
+            }
+        }
+
         /// <summary>
         /// Methode pour la sauvegarde unifiée du contexte
         /// </summary>

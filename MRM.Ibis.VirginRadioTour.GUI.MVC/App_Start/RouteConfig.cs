@@ -50,6 +50,12 @@ namespace MRM.Ibis.VirginRadioTour.GUI.MVC
                "{eventId}/fin",
                new { controller = "Home", action = "End" }
             );
+
+            routes.MapRoute(
+                "Default", 
+                "{controller}/{action}/{id}", 
+                new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            );
         }
     }
 

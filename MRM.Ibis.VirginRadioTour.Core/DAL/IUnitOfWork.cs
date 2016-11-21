@@ -12,6 +12,8 @@ namespace MRM.Ibis.VirginRadioTour.Core.DAL
         /// </summary>
         IParticipantRepository ParticipantRepository { get; } 
 
+        IEventRepository EventRepository { get; }
+
         /// <summary>
         /// Methode pour la sauvegarde unifiée du contexte
         /// </summary>
