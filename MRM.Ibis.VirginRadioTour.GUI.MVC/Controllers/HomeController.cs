@@ -21,9 +21,7 @@ namespace MRM.Ibis.VirginRadioTour.GUI.MVC.Controllers
                 if (DateTime.Now > @event.InscriptionsEndDate)
                     return RedirectToAction("End");
 
-                ViewBag.EventId = eventId;
-
-                return View();
+                return View(Mapper.Map<ParticipationViewModel>(new Participation() { EventId = eventId }));
             }
             catch (EventNotFoundException)
             {
@@ -40,7 +38,6 @@ namespace MRM.Ibis.VirginRadioTour.GUI.MVC.Controllers
             {
                 try
                 {
-                    ViewBag.EventId = eventId;
                     ParticipationManager manager = new ParticipationManager(UnitOfWork);
                     Participation participation = Mapper.Map<Participation>(vm);
 

@@ -2,12 +2,454 @@
 @{
     Layout = null;
     ViewBag.title = "Ibis";
-    ViewContext.MailMessage().Subject = String.Format("Confirmation de votre participation au Concours");
+    ViewContext.MailMessage().Subject = String.Format("Confirmation de vôtre participation au Concours");
     ViewContext.MailMessage().From = new System.Net.Mail.MailAddress("nepasrepondre@ibishotels.fr", "Ibis Hotels");
-
+    var eventDetails = ViewContext.GetEventDetails();
 }
 
-<h2>EmailInscription</h2>
-
-<a href="@Url.AbsoluteAction("Validate","Home" , new { eventId = Model.EventId, id = Model.Id, uid = Model.UID })">Validez votre participation</a>
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+    <meta name="viewport" content="initial-scale=1.0">
+    <title>ibis</title>
+    <style type="text/css">
+@@media screen and (max-width: 485px) {
+* {
+	-webkit-text-size-adjust: none !important;
+	-moz-text-size-adjust: none !important;
+	-o-text-size-adjust: none !important;
+	-ms-text-size-adjust: none !important;
+	text-size-adjust: none !important;
+}
+table[class="none"], td[class="none"], tr[class="none"], span[class="none"], br[class="none"] {
+	display: none !important;
+}
+*[class].small {
+	display: block !important;
+	width: 320px !important;
+	overflow: visible !important;
+	float: none !important;
+	height: auto !important;
+}
+*[class].w290m {
+	display: block !important;
+	width: 290px !important;
+	overflow: visible !important;
+	float: none !important;
+	height: auto !important;
+}
+*[class].block {
+	display: block !important;
+}
+.w320 {
+	width: 320px !important;
+}
+.w310 {
+	width: 310px !important;
+}
+.w80 {
+	width: 80px !important;
+}
+.w190 {
+	width: 190px !important;
+	height: 30px !important;
+}
+.w160 {
+	width: 160px !important;
+}
+.w268 {
+	width: 268px !important;
+}
+.w134 {
+	width: 134px !important;
+}
+.h15 {
+	height: 10px !important;
+}
+.h14 {
+	height: 15px !important;
+}
+.h16 {
+	height: 18px !important;
+}
+.h50 {
+	height: 46px !important;
+}
+.h25 {
+	height: 25px !important;
+}
+.h20 {
+	height: 20px !important;
+}
+.h33 {
+	height: 33px !important;
+}
+.h24 {
+	height: 24px !important;
+}
+.h0 {
+	height: 0px !important;
+}
+img[class="scale"] {
+	width: 100% !important;
+}
+.hide {
+	max-height: none !important;
+	display: block !important;
+	overflow: visible !important;
+	float: none !important;
+}
+.none {
+	display: none;
+	display: none !important;
+}
+*[class].hAuto {
+	height: auto !important;
+}
+*[class].wHed {
+	width: 90% !important;
+}
+*[class].wfooterHed {
+	width: 150px !important;
+}
+.large {
+	display: none !important;
+}
+body[yahoo] .none {
+	display: none;
+	display: none !important;
+}
+.ExternalClass * {
+	line-height: 100%;
+}
+.fs8 {
+	font-size: 8px !important;
+	line-height: 10px !important;
+}
+.fs18 {
+	font-size: 18px !important;
+	line-height: 22px !important;
+}
+.fs40 {
+	font-size: 39px !important;
+	line-height: 43px !important;
+}
+.fs15 {
+	font-size: 15px !important;
+	line-height: 17px !important;
+}
+.fs14 {
+	font-size: 14px !important;
+	line-height: 17px !important;
+}
+.fs12 {
+	font-size: 12px !important;
+	line-height: 16px !important;
+}
+.logo {
+	width: 320px !important;
+	height: 112px !important;
+}
+.sec1 {
+	width: 66px !important;
+	height: 36px !important;
+}
+.sec2 {
+	width: 64px !important;
+	height: 36px !important;
+}
+.borimg1 {
+	width: 320px !important;
+	height: 20px !important;
+}
+.borimg2 {
+	width: 320px !important;
+	height: 29px !important;
+}
+.mainimg {
+	width: 268px !important;
+	height: 243px !important;
+}
+.mainimg2 {
+	width: 80px !important;
+	height: 80px !important;
+}
+*[class].padT0 {
+	padding-top: 0px !important;
+}
+*[class].pad2 {
+	padding-bottom: 15px !important;
+}
+*[class].padT22 {
+	padding-top: 22px !important;
+}
+*[class].padB22 {
+	padding-bottom: 22px !important;
+}
+*[class].pad4 {
+	padding-right: 10px !important;
+	padding-left: 10px !important;
+}
+*[class].txtal {
+	text-align: justify !important;
+}
+*[class].txtalign {
+	text-align: center !important;
+}
+}
+.ExternalClass * {
+	line-height: 100%;
+}
+body {
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-o-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	text-size-adjust: none;
+}
+    </style>
+</head>
+<body topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" marginheight="0" marginwidth="0" alink="#000000" link="#000000" vlink="#000000" bgcolor="#f4f4f4">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#f4f4f4">
+        <tr>
+            <td align="center" valign="top">
+                <table align="center" cellpadding="0" cellspacing="0" border="0" width="600" class="w320">
+                    <tr>
+                        <td align="center" valign="top">
+                            <table align="center" cellpadding="0" cellspacing="0" border="0" width="600" class="w320" bgcolor="#f4f4f4">
+                                <tr>
+                                    <td align="left" valign="top"><img src="@Url.AbsoluteContent("~/Statics/img/spacer.gif")" alt="" height="12" class="scale" style="display:block;" border="0"></td>
+                                </tr>
+                                <tr>
+                                    <td align="center" valign="top" style="font-size:10px; text-align:center; font-weight:bold;" class="fs8"><font face="Arial, Helvetica, sans-serif" color="#000000">Pensez &agrave; valider votre participation</font></td>
+                                </tr>
+                                <tr>
+                                    <td align="left" valign="top"><img src="@Url.AbsoluteContent("~/Statics/img/spacer.gif")" alt="" height="5" class="scale" style="display:block;" border="0"></td>
+                                </tr>
+                                <tr>
+                                    <td align="center" valign="top" style="font-size:10px; text-align:center;" class="fs8"><font face="Arial, Helvetica, sans-serif" color="#000000">Si vous ne visualisez pas correctement ce courrier &eacute;lectronique, consultez la version <a href="#" target="_blank" style="color:#343333; text-decoration:underline">en ligne</a>.</font></td>
+                                </tr>
+                                <tr>
+                                    <td align="left" valign="top"><img src="@Url.AbsoluteContent("~/Statics/img/spacer.gif")" alt="" height="16" class="scale" style="display:block;" border="0"></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top">
+                            <table align="center" cellpadding="0" cellspacing="0" border="0" width="600" class="w320" bgcolor="#ffffff">
+                                <tr>
+                                    <td align="left" valign="top" class="large"><img src="@Url.AbsoluteContent("~/Statics/img/spacer.gif")" alt="" height="26" width="28" class="large" style="display:block;" border="0"></td>
+                                    <td align="left" valign="top" bgcolor="#ffffff">
+                                        <table align="left" cellpadding="0" cellspacing="0" border="0" width="347" class="w320" bgcolor="#ffffff">
+                                            <tr>
+                                                <td align="left" valign="top">
+                                                    <img src="@Url.AbsoluteContent("~/Statics/img/spacer.gif")" alt="" height="26" width="347" class="large" style="display:block;" border="0"><!--[if !mso]><!-- -->
+                                                    <img src="@Url.AbsoluteContent("~/Statics/img/email/1/ibis_virgin_radio_tour_v1_mob_1116_01.jpg")" width="0" height="0" class="small block hide logo" border="0" style="width:0px; overflow:hidden; float:left; display:none; line-height:0px; margin:0; padding:0;" alt="Virgin Radio Tour by ibis H&ocirc;tels" title="Virgin Radio Tour by ibis H&ocirc;tels">
+                                                    <!--<![endif]-->
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" valign="top" style="font-size:19px; text-align:left; line-height:22px;" class="fs18 padT22 txtalign"><font face="Arial, Helvetica, sans-serif" color="#000000">Bravo, vous avez gagn&eacute;</font></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" valign="top" style="font-size:44px; text-align:left; line-height:47px;" class="fs40 txtalign"><font face="Arial, Helvetica, sans-serif" color="#e1090a">2 PASS VIP</font></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" valign="top" style="font-size:19px; text-align:left; line-height:22px;" class="fs18 padB22 txtalign">
+                                                    <font face="Arial, Helvetica, sans-serif" color="#000000">
+                                                        pour un Live exceptionnel<br>
+                                                        &agrave; Ville le XX/XX.
+                                                    </font>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td align="left" valign="top" class="large"><img src="@Url.AbsoluteContent("~/Statics/img/email/1/ibis_virgin_radio_tour_v1_1116_05.jpg")" alt="Virgin Radio Tour by ibis H&ocirc;tels" title="Virgin Radio Tour by ibis H&ocirc;tels" height="159" width="225" class="large" style="display:block;" border="0"></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top">
+                            <table align="center" cellpadding="0" cellspacing="0" border="0" width="600" class="w320">
+                                <tr>
+                                    <td align="left" valign="top"><img src="@Url.AbsoluteContent("~/Statics/img/spacer.gif")" alt="" title="" height="58" width="600" class="w320 h33" style="display:block;" border="0"></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top">
+                            <table align="center" cellpadding="0" cellspacing="0" border="0" width="600" class="w320">
+                                <tr>
+                                    <td align="center" valign="top" class="large"><img src="@Url.AbsoluteContent("~/Statics/img/email/1/ibis_virgin_radio_tour_v1_1116_07.jpg")" alt="Musique" title="Musique" width="118" height="89" border="0" style="display:block;" class="large"></td>
+                                    <td align="center" valign="top">
+                                        <table align="center" cellpadding="0" cellspacing="0" border="0" width="364" class="w320">
+                                            <tr>
+                                                <td align="center" valign="top" style="padding-top:3px;" class="padT0">
+                                                    <table align="center" cellpadding="0" cellspacing="0" border="0" width="364" class="w320">
+                                                        <tr>
+                                                            <td align="center" valign="top" height="51" style="font-size:17px; text-align:center; line-height:20px;" class="fs15 h50 txtalign">
+                                                                <font face="Arial, Helvetica, sans-serif" color="#000000">
+                                                                    Confirmez votre participation en renseignant <br>
+                                                                    le nom de votre accompagnant :
+                                                                </font>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center" valign="top">
+                                                    <table align="center" cellpadding="0" cellspacing="0" border="0" width="364" class="w320">
+                                                        <tr>
+                                                            <td align="left" valign="top">
+                                                                <img src="@Url.AbsoluteContent("~/Statics/img/spacer.gif")" alt="" title="" height="26" width="60" class="large" style="display:block;" border="0"><!--[if !mso]><!-- -->
+                                                                <img src="@Url.AbsoluteContent("~/Statics/img/email/1/ibis_virgin_radio_tour_v1_mob_1116_05.jpg")" width="0" height="0" class="block hide sec1" border="0" style="width:0px; overflow:hidden; float:left; display:none; line-height:0px; margin:0; padding:0;" alt="Musique" title="Musique">
+                                                                <!--<![endif]-->
+                                                            </td>
+                                                            <td align="center" valign="top">
+                                                                <table align="center" cellpadding="0" cellspacing="0" border="0" width="244" class="w190">
+                                                                    <tr>
+                                                                        <td align="center" valign="middle" height="35" style="font-size:16px; text-align:center; line-height:18px; vertical-align:middle;" bgcolor="#000000" class="fs14 txtalign"><font face="Arial, Helvetica, sans-serif" color="#ffffff"><a href="@Url.AbsoluteAction("Validate","Home" , new { eventId = Model.EventId, id = Model.Id, uid = Model.UID })" target="_blank" style="color:#ffffff; text-decoration:none">JE VALIDE</a></font></td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                            <td align="left" valign="top">
+                                                                <img src="@Url.AbsoluteContent("~/Statics/img/spacer.gif")" alt="" title="" height="26" width="60" class="large" style="display:block;" border="0"><!--[if !mso]><!-- -->
+                                                                <img src="@Url.AbsoluteContent("~/Statics/img/email/1/ibis_virgin_radio_tour_v1_mob_1116_07.jpg")" width="0" height="0" class="block hide sec2" border="0" style="width:0px; overflow:hidden; float:left; display:none; line-height:0px; margin:0; padding:0;" alt="Musique" title="Musique">
+                                                                <!--<![endif]-->
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td align="center" valign="top" class="large"><img src="@Url.AbsoluteContent("~/Statics/img/email/1/ibis_virgin_radio_tour_v1_1116_09.jpg")" alt="Musique" title="Musique" width="118" height="89" border="0" style="display:block;" class="large"></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top">
+                            <table align="center" cellpadding="0" cellspacing="0" border="0" width="600" class="w320">
+                                <tr>
+                                    <td align="left" valign="top"><img src="@Url.AbsoluteContent("~/Statics/img/spacer.gif")" alt="" title="" height="35" width="600" class="w320 h24" style="display:block;" border="0"></td>
+                                </tr>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        <img src="@Url.AbsoluteContent("~/Statics/img/email/1/ibis_virgin_radio_tour_v1_1116_11.jpg")" alt="" title="" height="38" width="600" class="large" style="display:block;" border="0"><!--[if !mso]><!-- -->
+                                        <img src="@Url.AbsoluteContent("~/Statics/img/email/1/ibis_virgin_radio_tour_v1_mob_1116_09.jpg")" width="0" height="0" class="small block hide borimg1" border="0" style="width:0px; overflow:hidden; float:left; display:none; line-height:0px; margin:0; padding:0;" alt="" title="">
+                                        <!--<![endif]-->
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr class="large">
+                        <td align="left" valign="top"><img src="@Url.AbsoluteContent("~/Statics/img/email/1/ibis_virgin_radio_tour_v1_1116_12.jpg")" alt="Artistes" title="Artistes" height="137" width="600" class="large" style="display:block;" border="0"></td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top">
+                            <table align="center" cellpadding="0" cellspacing="0" border="0" width="600" class="w320">
+                                <tr>
+                                    <td align="center" valign="top" class="block">
+                                        <table align="center" cellpadding="0" cellspacing="0" border="0" width="299" class="w268">
+                                            <tr>
+                                                <td align="center" valign="top">
+                                                    <table align="center" cellpadding="0" cellspacing="0" border="0" width="150" class="w134">
+                                                        <tr>
+                                                            <td align="center" valign="top" style="font-size:15px; text-align:center; line-height:18px;" class="fs12 txtalign"><font face="Arial, Helvetica, sans-serif" color="#e10a0a">DAMIEN<strong>LAURETTA</strong></font></td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                                <td align="center" valign="top">
+                                                    <table align="center" cellpadding="0" cellspacing="0" border="0" width="149" class="w134">
+                                                        <tr>
+                                                            <td align="center" valign="top" style="font-size:15px; text-align:center; line-height:18px;" class="fs12 txtalign"><font face="Arial, Helvetica, sans-serif" color="#e10a0a">JULIAN<strong>PERRETTA</strong></font></td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td align="center" valign="top" class="block">
+                                        <table align="center" cellpadding="0" cellspacing="0" border="0" width="2" class="w268">
+                                            <tr>
+                                                <td align="left" valign="top">
+                                                    <img src="@Url.AbsoluteContent("~/Statics/img/spacer.gif")" alt="" title="" height="10" width="2" style="display:block;" border="0" class="large"><!--[if !mso]><!-- -->
+                                                    <img src="@Url.AbsoluteContent("~/Statics/img/email/1/ibis_virgin_radio_tour_v1_mob_1116_16.jpg")" width="0" height="0" class="block hide mainimg" border="0" style="width:0px; overflow:hidden; float:left; display:none; line-height:0px; margin:0; padding:0;" alt="Artistes" title="Artistes">
+                                                    <!--<![endif]-->
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td align="center" valign="top" class="block">
+                                        <table align="center" cellpadding="0" cellspacing="0" border="0" width="299" class="w268">
+                                            <tr>
+                                                <td align="center" valign="top">
+                                                    <table align="center" cellpadding="0" cellspacing="0" border="0" width="149" class="w134">
+                                                        <tr>
+                                                            <td align="center" valign="top" style="font-size:15px; text-align:center; line-height:18px;" class="fs12 txtalign"><font face="Arial, Helvetica, sans-serif" color="#e10a0a">EVANGELINE</font></td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                                <td align="center" valign="top">
+                                                    <table align="center" cellpadding="0" cellspacing="0" border="0" width="150" class="w134">
+                                                        <tr>
+                                                            <td align="center" valign="top" style="font-size:15px; text-align:center; line-height:18px;" class="fs12 txtalign"><font face="Arial, Helvetica, sans-serif" color="#e10a0a">JONAS<strong>BLUE</strong></font></td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top">
+                            <table align="center" cellpadding="0" cellspacing="0" border="0" width="600" class="w320">
+                                <tr>
+                                    <td align="left" valign="top">
+                                        <img src="@Url.AbsoluteContent("~/Statics/img/email/1/ibis_virgin_radio_tour_v1_1116_14.jpg")" alt="" title="" height="33" width="600" class="large" style="display:block;" border="0"><!--[if !mso]><!-- -->
+                                        <img src="@Url.AbsoluteContent("~/Statics/img/email/1/ibis_virgin_radio_tour_v1_mob_1116_13.jpg")" width="0" height="0" class="small block hide borimg2" border="0" style="width:0px; overflow:hidden; float:left; display:none; line-height:0px; margin:0; padding:0;" alt="" title="">
+                                        <!--<![endif]-->
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top">
+                            <table align="center" cellpadding="0" cellspacing="0" border="0" width="100" class="w80">
+                                <tr>
+                                    <td align="center" valign="top">
+                                        <img src="@Url.AbsoluteContent("~/Statics/img/email/1/ibis_virgin_radio_tour_v1_1116_16.jpg")" alt="Logo ibis Party" title="Logo ibis Party" height="85" width="100" class="large" style="display:block;" border="0"><!--[if !mso]><!-- -->
+                                        <img src="@Url.AbsoluteContent("~/Statics/img/email/1/ibis_virgin_radio_tour_v1_mob_1116_15.jpg")" width="0" height="0" class="block hide mainimg2" border="0" style="width:0px; overflow:hidden; float:left; display:none; line-height:0px; margin:0; padding:0;" alt="Logo ibis Party" title="Logo ibis Party">
+                                        <!--<![endif]-->
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top">
+                            <table align="center" cellpadding="0" cellspacing="0" border="0" width="600" class="w320">
+                                <tr>
+                                    <td align="left" valign="top"><img src="@Url.AbsoluteContent("~/Statics/img/spacer.gif")" alt="" title="" height="35" width="600" class="w320 h24" style="display:block;" border="0"></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

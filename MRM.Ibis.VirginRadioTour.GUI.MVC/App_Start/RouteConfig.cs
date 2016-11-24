@@ -18,43 +18,50 @@ namespace MRM.Ibis.VirginRadioTour.GUI.MVC
             routes.MapRoute(
                "NoEvent",
                "aucun-live",
-               new { controller = "Home", action = "NoEvent" }
+               new { controller = "Home", action = "NoEvent" },
+               namespaces: new[] { "MRM.Ibis.VirginRadioTour.GUI.MVC.Controllers" }
             );
 
             routes.MapRoute(
                 name: "Index",
                 url: "{eventId}",
-                defaults: new { controller = "Home", action = "Index" }
+                defaults: new { controller = "Home", action = "Index" },
+                namespaces: new[] { "MRM.Ibis.VirginRadioTour.GUI.MVC.Controllers" }
             );
 
             routes.MapRoute(
                "Confirm",
                "{eventId}/confirm",
-               new { controller = "Home", action = "Confirm" }
+               new { controller = "Home", action = "Confirm" },
+                namespaces: new[] { "MRM.Ibis.VirginRadioTour.GUI.MVC.Controllers" }
            );
 
             routes.MapRoute(
                 name: "Validate",
                 url: "{eventId}/validate",
-                defaults: new { controller = "Home", Action = "Validate" }
+                defaults: new { controller = "Home", Action = "Validate" },
+                namespaces: new[] { "MRM.Ibis.VirginRadioTour.GUI.MVC.Controllers" }
             );
 
             routes.MapRoute(
                "Invite",
                "{eventId}/invite",
-               new { controller = "Home", action = "Invite" }
+               new { controller = "Home", action = "Invite" },
+                namespaces: new[] { "MRM.Ibis.VirginRadioTour.GUI.MVC.Controllers" }
             );
 
             routes.MapRoute(
                "EventEnded",
                "{eventId}/fin",
-               new { controller = "Home", action = "End" }
+               new { controller = "Home", action = "End" },
+                namespaces: new[] { "MRM.Ibis.VirginRadioTour.GUI.MVC.Controllers" }
             );
 
             routes.MapRoute(
                 "Default", 
                 "{controller}/{action}/{id}", 
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "MRM.Ibis.VirginRadioTour.GUI.MVC.Controllers" }
             );
         }
     }

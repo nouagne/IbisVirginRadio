@@ -40,6 +40,11 @@ namespace MRM.Ibis.VirginRadioTour.Core.BLL
             return @event;
         }
 
+        public List<Event> FindAll()
+        {
+            return _unitOfWork.EventRepository.FindAll(e => true);
+        }
+
         public Event FindById(int id)
         {
             var @event = _unitOfWork.EventRepository.Find(e => e.Id == id);
@@ -48,6 +53,29 @@ namespace MRM.Ibis.VirginRadioTour.Core.BLL
                 throw new EventNotFoundException();
 
             return @event;
+        }
+
+        public void Create(Event @event)
+        {
+            _unitOfWork.EventRepository.Add(@event);
+            _unitOfWork.SaveChanges();
+        }
+
+        public void Update(int id, string city, DateTime inscriptionsStartDate, DateTime inscriptionsEndDate, DateTime startDate, DateTime endDate)
+        {
+            var @event = _unitOfWork.EventRepository.Find(e => e.Id == id);
+
+            if (@event == null)
+                throw new EventNotFoundException("Aucun événnement");
+
+            @event.City = city;
+            @event.InscriptionsStartDate = inscriptionsStartDate;
+            @event.InscriptionsEndDate = inscriptionsEndDate;
+            @event.StartDate = startDate;
+            @event.EndDate = endDate;
+
+            _unitOfWork.EventRepository.Update(@event);
+            _unitOfWork.SaveChanges();
         }
 
     }

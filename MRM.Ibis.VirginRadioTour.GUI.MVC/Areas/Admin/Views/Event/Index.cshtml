@@ -1,0 +1,29 @@
+﻿@model List<Event>
+
+<p><a class="btn btn-default" href="@Url.Action("Create")">Créer &raquo;</a></p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Ville</th>
+            <th>Date de début des inscriptions</th>
+            <th>Date de fin des isncriptions</th>
+            <th>Date de début de l'événnemnt</th>
+            <th>Date de fin de l'événnemnt</th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var @event in Model)
+        {
+            <tr>
+                <td>@(@event.City)</td>
+                <td>Le @(@event.InscriptionsStartDate.ToString("dd-MM-yyyy")) à @(@event.InscriptionsStartDate.ToString("HH"))h@(@event.InscriptionsStartDate.ToString("mm"))</td>
+                <td>Le @(@event.InscriptionsEndDate.ToString("dd-MM-yyyy")) à @(@event.InscriptionsEndDate.ToString("HH"))h@(@event.InscriptionsEndDate.ToString("mm"))</td>
+                <td>@(@event.StartDate.ToString("dd-MM-yyyy")) à @(@event.StartDate.ToString("HH"))h@(@event.StartDate.ToString("mm"))</td>
+                <td>@(@event.EndDate.ToString("dd-MM-yyyy")) à @(@event.EndDate.ToString("HH"))h@(@event.EndDate.ToString("mm"))</td>
+                <td><a class="btn btn-default" href="@Url.Action("Edit", new { id = @event.Id })"><span class="glyphicon glyphicon-cog"></span></a></td>
+            </tr>
+        }
+    </tbody>
+</table>

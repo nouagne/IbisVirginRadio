@@ -37,7 +37,9 @@ namespace MRM.Ibis.VirginRadioTour.Core.DAL
         public virtual DbSet<BO.Event> Events { get; set; }
         
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {           
+        {
+            Database.SetInitializer<EFDbContext>(null);
+            base.OnModelCreating(modelBuilder);
         }
 
         public override int SaveChanges()

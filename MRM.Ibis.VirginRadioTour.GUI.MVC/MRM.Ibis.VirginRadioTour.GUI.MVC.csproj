@@ -142,6 +142,10 @@
     <Compile Include="App_Start\MappingConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAresRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\EventController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\ViewModels\LoginViewModel.cs" />
     <Compile Include="Attributes\AuthorizeIPAddressAttribute.cs" />
     <Compile Include="Attributes\EmailAttribute.cs" />
     <Compile Include="Attributes\P3PAttribute.cs" />
@@ -163,6 +167,21 @@
     <Compile Include="ViewModels\ValidationViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Views\Web.config" />
+    <Content Include="Areas\Admin\Views\Home\LogIn.cshtml" />
+    <Content Include="Areas\Admin\Views\Event\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Event\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Event\Edit.cshtml" />
+    <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Statics\css\bootstrap-theme.css" />
     <Content Include="Statics\css\bootstrap-theme.min.css" />
     <Content Include="Statics\css\bootstrap.css" />
@@ -176,8 +195,56 @@
     <Content Include="Statics\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Statics\css\bootstrap-theme.css.map" />
     <Content Include="Statics\css\bootstrap.css.map" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Statics\js\jquery-2.1.0.intellisense.js" />
-    <Content Include="Statics\img\Auxerre.jpeg" />
+    <Content Include="Statics\img\email\2\ibis_virgin_radio_tour_v2_1116_04.jpg" />
+    <Content Include="Statics\img\email\2\ibis_virgin_radio_tour_v2_1116_06.jpg" />
+    <Content Include="Statics\img\email\2\ibis_virgin_radio_tour_v2_1116_11.jpg" />
+    <Content Include="Statics\img\email\2\ibis_virgin_radio_tour_v2_1116_12.jpg" />
+    <Content Include="Statics\img\email\2\ibis_virgin_radio_tour_v2_1116_13.jpg" />
+    <Content Include="Statics\img\email\2\ibis_virgin_radio_tour_v2_1116_16.jpg" />
+    <Content Include="Statics\img\email\2\ibis_virgin_radio_tour_v2_1116_17.jpg" />
+    <Content Include="Statics\img\email\2\ibis_virgin_radio_tour_v2_1116_18.jpg" />
+    <Content Include="Statics\img\email\2\ibis_virgin_radio_tour_v2_mob_1116_01.jpg" />
+    <Content Include="Statics\img\email\2\ibis_virgin_radio_tour_v2_mob_1116_07.jpg" />
+    <Content Include="Statics\img\email\2\ibis_virgin_radio_tour_v2_mob_1116_08.jpg" />
+    <Content Include="Statics\img\email\2\ibis_virgin_radio_tour_v2_mob_1116_09.jpg" />
+    <Content Include="Statics\img\email\2\ibis_virgin_radio_tour_v2_mob_1116_12.jpg" />
+    <Content Include="Statics\img\email\2\ibis_virgin_radio_tour_v2_mob_1116_13.jpg" />
+    <Content Include="Statics\img\email\2\ibis_virgin_radio_tour_v2_mob_1116_14.jpg" />
+    <Content Include="Statics\img\email\1\ibis_virgin_radio_tour_v1_1116_04.jpg" />
+    <Content Include="Statics\img\email\1\ibis_virgin_radio_tour_v1_1116_05.jpg" />
+    <Content Include="Statics\img\email\1\ibis_virgin_radio_tour_v1_1116_07.jpg" />
+    <Content Include="Statics\img\email\1\ibis_virgin_radio_tour_v1_1116_09.jpg" />
+    <Content Include="Statics\img\email\1\ibis_virgin_radio_tour_v1_1116_11.jpg" />
+    <Content Include="Statics\img\email\1\ibis_virgin_radio_tour_v1_1116_14.jpg" />
+    <Content Include="Statics\img\email\1\ibis_virgin_radio_tour_v1_1116_16.jpg" />
+    <Content Include="Statics\img\email\1\ibis_virgin_radio_tour_v1_mob_1116_01.jpg" />
+    <Content Include="Statics\img\email\1\ibis_virgin_radio_tour_v1_mob_1116_02.jpg" />
+    <Content Include="Statics\img\email\1\ibis_virgin_radio_tour_v1_mob_1116_05.jpg" />
+    <Content Include="Statics\img\email\1\ibis_virgin_radio_tour_v1_mob_1116_07.jpg" />
+    <Content Include="Statics\img\email\1\ibis_virgin_radio_tour_v1_mob_1116_09.jpg" />
+    <Content Include="Statics\img\email\1\ibis_virgin_radio_tour_v1_mob_1116_13.jpg" />
+    <Content Include="Statics\img\email\1\ibis_virgin_radio_tour_v1_mob_1116_15.jpg" />
+    <Content Include="Statics\img\events\Lyon\28-11-2016\cast-1.jpg" />
+    <Content Include="Statics\img\events\Lyon\28-11-2016\cast-2.jpg" />
+    <Content Include="Statics\img\spacer.gif" />
+    <Content Include="Statics\img\ui\headphone.png" />
+    <Content Include="Statics\img\ui\icon-facebook.png" />
+    <Content Include="Statics\img\ui\icon-twitter.png" />
+    <Content Include="Statics\img\ui\logo-desktop-h.png" />
+    <Content Include="Statics\img\ui\logo-desktop.png" />
+    <Content Include="Statics\img\ui\logo-ibis-party.png" />
+    <Content Include="Statics\img\ui\logo-mobile.png" />
+    <Content Include="Statics\img\ui\mic.png" />
+    <Content Include="Statics\img\ui\tickets.png" />
+    <Content Include="Statics\img\ui\validation-mark.png" />
     <Content Include="Statics\js\bootstrap.js" />
     <Content Include="Statics\js\bootstrap.min.js" />
     <Content Include="Statics\js\jquery-2.1.0.js" />
@@ -215,8 +282,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Base\" />
-    <Folder Include="Views\Event\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

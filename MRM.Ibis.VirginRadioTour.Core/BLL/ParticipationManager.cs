@@ -67,6 +67,11 @@ namespace MRM.Ibis.VirginRadioTour.Core.BLL
         /// </summary>
         public Participation Validate(string eventId, Participation p)
         {
+            var @event = _unitOfWork.EventRepository.Find(e => e.City == eventId);
+
+            if (@event == null)
+                throw new EventNotFoundException("Aucun évènnement dans cette ville");
+
             var participation = _unitOfWork.ParticipantRepository.Find(pa => pa.EventId == eventId && pa.Id == p.Id && pa.UID == p.UID);
 
             if (participation == null)
@@ -85,7 +90,7 @@ namespace MRM.Ibis.VirginRadioTour.Core.BLL
             //Envoi du mail d'invitation
             MailMessage mailMessage = new MailMessage();
             mailMessage.To.Add(participation.Email);
-            Tools.Email.Send(mailMessage, "Invitation", participation);
+            Tools.Email.Send(mailMessage, "Invitation", @event);
 
             return participation;
         }
