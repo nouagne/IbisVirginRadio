@@ -75,7 +75,7 @@ namespace MRM.Ibis.VirginRadioTour.Core.BLL
             participation.Gender = p.Gender;
             participation.Lastname = p.Lastname;
             participation.Firstname = p.Firstname;
-            participation.Email = p.Email;
+            //participation.Email = p.Email;
             participation.Phone = p.Phone;
             participation.Guest = p.Guest;
             participation.ValidationDate = DateTime.Now;
@@ -97,14 +97,17 @@ namespace MRM.Ibis.VirginRadioTour.Core.BLL
             if (participation == null)
                 throw new ParticipationNotFoundException("Cette participation n'existe pas");
 
-            participation.IsWinner = true;
+            if (!participation.IsWinner)
+            {
+                participation.IsWinner = true;
 
-            _unitOfWork.SaveChanges();
+                _unitOfWork.SaveChanges();
 
-            //Envoi du mail au gagnant
-            MailMessage mailMessage = new MailMessage();
-            mailMessage.To.Add(participation.Email);
-            Tools.Email.Send(mailMessage, "WinningParticipation", participation);
+                //Envoi du mail au gagnant
+                MailMessage mailMessage = new MailMessage();
+                mailMessage.To.Add(participation.Email);
+                Tools.Email.Send(mailMessage, "WinningParticipation", participation);
+            }
         }
     }
 }

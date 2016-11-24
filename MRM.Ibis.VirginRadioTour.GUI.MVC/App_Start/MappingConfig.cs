@@ -14,6 +14,7 @@ namespace MRM.Ibis.VirginRadioTour.GUI.MVC
                 config.CreateMap<Participation, ValidationViewModel>();
                 config.CreateMap<Participation, ParticipationViewModel>();
                 config.CreateMap<ParticipationViewModel, Participation>();
+                config.CreateMap<Event, EventViewModel>();
             });
         }
     }

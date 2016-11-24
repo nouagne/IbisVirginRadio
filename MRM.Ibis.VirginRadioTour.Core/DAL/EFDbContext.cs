@@ -33,6 +33,8 @@ namespace MRM.Ibis.VirginRadioTour.Core.DAL
         }
 
         public virtual DbSet<BO.Participation> Entities { get; set; }
+
+        public virtual DbSet<BO.Event> Events { get; set; }
         
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {           

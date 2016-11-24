@@ -1,5 +1,5 @@
 ﻿@model ValidationViewModel
 
-@Html.Partial("_EventDetails")
+@Html.Action("EventDetails", "Event", new { eventId = Model.EventId })
 
 <p class="form__intro">Merci. Vous allez recevoir votre invitation par e-mail.</p>

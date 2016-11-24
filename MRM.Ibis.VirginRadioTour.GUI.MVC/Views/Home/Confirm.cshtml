@@ -1,6 +1,6 @@
 ﻿@model  ParticipationViewModel
 
-@Html.Partial("_EventDetails")
+@Html.Action("EventDetails", "Event", new { eventId = Model.EventId })
 
 <p class="form__intro">Votre participation a bien été enregistrée</p>
 

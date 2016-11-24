@@ -3,8 +3,8 @@
     ViewBag.Title = "Live exceptionnel";
 }
 
+@Html.Action("EventDetails", "Event", new { eventId = Model.EventId })
 
-@Html.Partial("_EventDetails")
 <div class="event-prizes-form event-prizes-form--validate">
     <p class="form__intro">Qui sont les heureux élus&nbsp;?</p>
     <form action="@Url.Action("Validate", "Home")" method="post" class="form">
@@ -30,7 +30,7 @@
             </div>
         <div class="form__group form__group--last-name">
             <label for="email">Adresse mail*</label>
-            @Html.TextBoxFor(model => model.Email, new { name = "email", id = "email" })
+            @Html.TextBoxFor(model => model.Email, new { name = "email", id = "email", @readonly = "readonly" })
             </div>
         <div class="form__group form__group--phone">
             <label for="tel">Numéro de téléphone</label>
